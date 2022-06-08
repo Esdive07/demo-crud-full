@@ -33,8 +33,8 @@ public class UserController {
 	}
 
 	@GetMapping
-	private ResponseEntity<List<UserEntity>> getAllUser(UserEntity userEntity) {
-		return ResponseEntity.ok(this.userServices.getAllUser(userEntity));
+	private ResponseEntity<List<UserEntity>> getAllUser() {
+		return ResponseEntity.ok(this.userServices.getAllUser());
 	}
 
 	@PutMapping("/{id}")
