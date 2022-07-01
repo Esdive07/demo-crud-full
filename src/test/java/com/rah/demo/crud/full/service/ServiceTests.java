@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -66,14 +69,27 @@ public class ServiceTests {
 		assertEquals(salidaUser.getApellido(), response.getApellido());
 	}
 
-//	@Test
-//	public void getAllUserTest() {
-//
-//		UserEntity userEntity = new UserEntity();
-//		
-//		
-//		when(this.userRepository.findAll()).thenReturn(List<UserEntity>);
-//
-//	}
+	@Test
+	public void getAllUserTest() {
+
+		List<UserEntity> listaEntities = new ArrayList<>();
+		UserEntity userEntity = new UserEntity();
+		listaEntities.add(userEntity);
+				
+		when(this.userRepository.findAll()).thenReturn(listaEntities);
+		List<UserEntity> response = this.userService.getAllUser();
+		assertNotNull(response);
+
+	}
+
+	@Test
+	public void updateUserTest() {
+		UserEntity userEntity = new UserEntity();
+		Integer id = 1;
+
+		when(this.userRepository.save(userEntity)).thenReturn(userEntity);
+		UserEntity response = this.userService.updateUser(userEntity, id);
+		assertNotNull(response);
+	}
 
 }
