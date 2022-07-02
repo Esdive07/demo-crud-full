@@ -33,12 +33,12 @@ public class UserController {
 	}
 
 	@GetMapping
-	private ResponseEntity<List<UserEntity>> getAllUser() {
+	public ResponseEntity<List<UserEntity>> getAllUser() {
 		return ResponseEntity.ok(this.userServices.getAllUser());
 	}
 
 	@PutMapping("/{id}")
-	private ResponseEntity<UserEntity> updateUser(@RequestBody UserEntity userEntity, @PathVariable Integer id) {
+	public ResponseEntity<UserEntity> updateUser(@RequestBody UserEntity userEntity, @PathVariable Integer id) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.userServices.updateUser(userEntity, id));
 	}
 

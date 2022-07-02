@@ -115,6 +115,11 @@ public class ServiceTests {
 		List<UserEntity> listaEntities = new ArrayList<>();
 		UserEntity userEntity = new UserEntity();
 		listaEntities.add(userEntity);
+		listaEntities.add(userEntity);
+		listaEntities.add(userEntity);
+		listaEntities.add(userEntity);
+		listaEntities.add(userEntity);
+		listaEntities.add(userEntity);
 
 		when(this.userRepository.findAll()).thenReturn(listaEntities);
 		List<UserEntity> response = this.userService.getAllUser();
